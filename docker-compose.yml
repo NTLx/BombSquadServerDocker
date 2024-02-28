@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  bombsquadserver:
+    image: bombsquadserver:1.7.33
+    container_name: bombsquadserver
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - "43210:43210/udp"
+    logging:
+      options:
+        max-size: "1m"
